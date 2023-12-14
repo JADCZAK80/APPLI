@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="row text-center">
+
+    {{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row">
+        <div class="col-9 mx-auto mb-2 mt-4">
+             {{ form_label(form.objet, "Mon libellé a été modifié") }}
+             {{ form_widget(form.objet, {'attr': {'class': 'btn-light'} }) }}
+             {{ form_errors(form.objet) }}       
+             </div>
+        <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.email) }}
+        </div>
+        <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.message) }}
+        </div>
+
+    </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
