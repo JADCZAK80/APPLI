@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MailerController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+{# templates/emails/signup.html.twig #}
+<h1>Welcome {{ email.toName }}!</h1>
+
+<p>
+    You signed up as {{ username }} the following email:
+</p>
+<p><code>{{ email.to[0].address }}</code></p>
+
+<p>
+    <a href="#">Click here to activate your account</a>
+    (this link is valid until {{ expiration_date|date('F jS') }})
+</p>
+{% endblock %}

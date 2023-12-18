@@ -35,7 +35,22 @@ class ArtistRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
+// dans la classe ArtistRepository
+public function getSomeArtists($name)
+{
+    //$name est un paramètre qui pour cet exemple a come valeur "Neil";
+    $entityManager = $this->getEntityManager(); //on instancie l'entity manager
 
+    $query = $entityManager->createQuery( //on crée la requête 
+        'SELECT a
+        FROM App\Entity\Artist a
+        WHERE a.name  like :name'
+    )->setParameter('name', '%'.$name.'%');
+
+    // retourne un tableau d'objets de type Artist
+    return $query->getResult();
+
+}
 //    public function findOneBySomeField($value): ?Artist
 //    {
 //        return $this->createQueryBuilder('a')
