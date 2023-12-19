@@ -25,6 +25,10 @@ services:
             $mailer: '@mailer'
             $paramBag: '@parameter_bag'
 
-
+    App\EventSubscriber\ContactSubscriber:
+       arguments:
+           $mailer: '@Symfony\Component\Mailer\MailerInterface'
+       tags:
+           - { name: doctrine.event_subscriber }
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
